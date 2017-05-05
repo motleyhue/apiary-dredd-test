@@ -1,0 +1,10 @@
+{
+  "require": {
+    "silex/silex": "~1.2"
+  },
+  "require-dev": {
+    "ddelnano/dredd-hooks-php": "^1.1",
+    "phpunit/phpunit": "3.7.*",
+    "escapestudios/symfony2-coding-standard": "~2.0"
+  }
+}

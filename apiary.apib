@@ -1,0 +1,50 @@
+# Biomedical Membership API
+
+Biomedical Membership is a simple API allowing consumers to authenticate against an external membership database.
+
+## User Sessions [/user/{appSecret}/login]
+
++ Parameters
+    + appSecret (required, string, `1234test`) ... Application Secret (`appSecret`)
+
+### Login [POST]
+
+The login request expects the user's credentials in the request body and must be authenticated with the app secret.
+
++ Request (application/json)
+
+        {
+            "username": "test_editor",
+            "password": "password"
+        }
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "username": "bob",
+                "roles": [
+                    "editor",
+                    "administrator"
+                ]
+            }
+
++ Response 401 (application/json)
+
+    Returned if the user does not have access to the requested account
+
+    + Body
+
+            {
+                "error": "error.unauthorized"
+            }
+
++ Response 404 (application/json)
+
+    Returned if a user was not found for the given userId
+
+    + Body
+
+            {
+                "error": "User not found"
+            }
